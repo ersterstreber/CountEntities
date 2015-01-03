@@ -1,8 +1,11 @@
 name: CountEntities
 main: de.ersterstreber.countentities.Main
 version: 1.0
-author: erstterstreber
+author: ersterstreber
 commands:
      countentities:
           description: Zaehlt die Tiere in deinem Chunk.
           aliases: [ce]
+     deleteentities:
+          description: Loescht Tiere aus deinem Chunk.
+          aliases: [delent]
