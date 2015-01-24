@@ -6,18 +6,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import net.minecraft.server.v1_7_R4.ChatClickable;
-import net.minecraft.server.v1_7_R4.ChatHoverable;
-import net.minecraft.server.v1_7_R4.ChatMessage;
-import net.minecraft.server.v1_7_R4.ChatModifier;
-import net.minecraft.server.v1_7_R4.ChatSerializer;
-import net.minecraft.server.v1_7_R4.EnumClickAction;
-import net.minecraft.server.v1_7_R4.EnumHoverAction;
-import net.minecraft.server.v1_7_R4.IChatBaseComponent;
-import net.minecraft.server.v1_7_R4.PacketPlayOutChat;
+import net.minecraft.server.v1_8_R1.ChatClickable;
+import net.minecraft.server.v1_8_R1.ChatHoverable;
+import net.minecraft.server.v1_8_R1.ChatMessage;
+import net.minecraft.server.v1_8_R1.ChatModifier;
+import net.minecraft.server.v1_8_R1.ChatSerializer;
+import net.minecraft.server.v1_8_R1.EnumClickAction;
+import net.minecraft.server.v1_8_R1.EnumHoverAction;
+import net.minecraft.server.v1_8_R1.IChatBaseComponent;
+import net.minecraft.server.v1_8_R1.PacketPlayOutChat;
 
 import org.bukkit.Chunk;
-import org.bukkit.craftbukkit.v1_7_R4.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_8_R1.entity.CraftPlayer;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
@@ -97,7 +97,7 @@ public class Entities {
 				IChatBaseComponent chat = ChatSerializer.a("{\"text\": \"  §f" + Language.translate(entry.getKey()) + ": §6" + entry.getValue() + "\"}");
 				ChatModifier modifier = new ChatModifier();
 				modifier.setChatClickable(new ChatClickable(EnumClickAction.SUGGEST_COMMAND, "/delent " + Language.translate(entry.getKey()) + " " + 0));
-				modifier.a(new ChatHoverable(EnumHoverAction.SHOW_TEXT, new ChatMessage("Diese Mobs löschen")));
+				modifier.setChatHoverable(new ChatHoverable(EnumHoverAction.SHOW_TEXT, new ChatMessage("Diese Mobs löschen")));
 				chat.setChatModifier(modifier);
 				PacketPlayOutChat packet = new PacketPlayOutChat(chat);
 				((CraftPlayer) p).getHandle().playerConnection.sendPacket(packet);
@@ -120,7 +120,7 @@ public class Entities {
 				IChatBaseComponent chat = ChatSerializer.a("{\"text\": \"  §f" + Language.translate(entry.getKey()) + ": §6" + entry.getValue() + "\"}");
 				ChatModifier modifier = new ChatModifier();
 				modifier.setChatClickable(new ChatClickable(EnumClickAction.SUGGEST_COMMAND, "/delent " + Language.translate(entry.getKey()) + " " + 0));
-				modifier.a(new ChatHoverable(EnumHoverAction.SHOW_TEXT, new ChatMessage("Diese Mobs löschen")));
+				modifier.setChatHoverable(new ChatHoverable(EnumHoverAction.SHOW_TEXT, new ChatMessage("Diese Mobs löschen")));
 				chat.setChatModifier(modifier);
 				PacketPlayOutChat packet = new PacketPlayOutChat(chat);
 				((CraftPlayer) p).getHandle().playerConnection.sendPacket(packet);
@@ -143,7 +143,7 @@ public class Entities {
 				IChatBaseComponent chat = ChatSerializer.a("{\"text\": \"  §f" + Language.translate(entry.getKey()) + ": §6" + entry.getValue() + "\"}");
 				ChatModifier modifier = new ChatModifier();
 				modifier.setChatClickable(new ChatClickable(EnumClickAction.SUGGEST_COMMAND, "/delent " + Language.translate(entry.getKey()) + " " + 0));
-				modifier.a(new ChatHoverable(EnumHoverAction.SHOW_TEXT, new ChatMessage("Diese Mobs löschen")));
+				modifier.setChatHoverable(new ChatHoverable(EnumHoverAction.SHOW_TEXT, new ChatMessage("Diese Mobs löschen")));
 				chat.setChatModifier(modifier);
 				PacketPlayOutChat packet = new PacketPlayOutChat(chat);
 				((CraftPlayer) p).getHandle().playerConnection.sendPacket(packet);
@@ -203,7 +203,7 @@ public class Entities {
 				removed++;
 			}
 		}
-		p.sendMessage("§7Abgeschlossen! Es wurde(n) " + removed + " Mobs entfernt.");
+		p.sendMessage("§7Abgeschlossen! Es wurde(n) " + removed + " Mob(s) entfernt.");
 		
 		//Clearen
 		removed = 0;
